@@ -1,0 +1,23 @@
+#login-page {
+  margin: 0;
+  height: 100vh;
+  background:#242936;
+}
+#logo {
+  height: 3vmin;
+  padding: 1vmin 0vmin 0vmin 1vmin;
+}
+#box {
+  margin: 0;
+  height: 92vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#validation-box {
+  width: 50vmin;
+  height: 70vmin;
+  background-color: #444e66;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 2vmin;
+}
