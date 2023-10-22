@@ -1,0 +1,29 @@
+@media screen {
+  @media (min-width: 1328px) {
+    #snake-image {
+      position: relative;
+      size: initial;
+      height: 80%;
+      left: -6vmin;
+      top: 11vmin;
+    }
+    #sidebox {
+      background-color: #394756;
+      height: 60vh;
+      width: 38vw;
+      border-radius: 3vmin;
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 25px;
+    }
+  }
+  @media (min-width: 1800px) {
+    #snake-image {
+      height: 100%;
+      left: -9vmin;
+      top: 4vmin;
+    }
+    #sidebox {
+      height: 78vh;
+      width: 46vw;
+    }
+  }
+}

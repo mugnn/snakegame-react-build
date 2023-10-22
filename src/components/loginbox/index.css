@@ -1,0 +1,34 @@
+@media screen {
+  @media (min-width: 375px) {
+    #login-box {
+      background-color: rgba(36, 41, 54, 0.2);
+      backdrop-filter: blur(8px);
+      height: 58vmax;
+      width: 38vmax;
+      border-radius: 3vmin;
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+  }
+  @media (min-width: 965px) {
+    #login-box {
+      height: 60vmin;
+      width: 32vw;
+    }
+  }
+  @media (min-width: 1328px) {
+    #login-box {
+      height: 60vh;
+      width: 26vw;
+    }
+  }
+  @media (min-width: 1800px) {
+    #login-box {
+      height: 78vh;
+      width: 26vw;
+    }
+  }
+}

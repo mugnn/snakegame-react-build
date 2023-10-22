@@ -9,11 +9,11 @@ import './index.css';
 const App = () => {
   return (
   <BrowserRouter>
-    {/* <Link to='/'>page</Link> */}
-    {/* <Link to='/about'>file</Link> */}
+    {/* <Link to='/'>login</Link> */}
+    {/* <Link to='/game'>main</Link> */}
     <Routes>
-      <Route path='/login' element={<Login />} />
-      <Route path='/main' element={<Main />} />
+      <Route path='/' element={<Login />} />
+      <Route path='/game' element={<Main />} />
     </Routes>
   </BrowserRouter>
   )

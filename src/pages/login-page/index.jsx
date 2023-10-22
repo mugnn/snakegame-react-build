@@ -1,14 +1,16 @@
 import './index.css'
-import img from './assets/title.png'
+import Background from '../../components/background/background'
+import SideBox from '../../components/sidebox/sidebox'
+import LoginBox from '../../components/loginbox/loginbox'
+// import colors from './../../styles/theme.tsx'
 
 const Login = () => {
   return(
     <div id='login-page'>
-      <img alt='logo' src={img} id='logo'/>
-      <div id='box'>
-        <div id='validation-box'>
-
-        </div>
+      <Background />
+      <div id='content'>
+        <SideBox />
+        <LoginBox />
       </div>
     </div>
   )
