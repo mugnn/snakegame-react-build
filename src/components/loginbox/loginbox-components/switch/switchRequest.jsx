@@ -5,15 +5,21 @@ const SwitchRequest = () => {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
 
   useEffect(() => {
-    const login = document.getElementById('login')
-    const register = document.getElementById('register')    
+    const login = document.getElementById('login');
+    const register = document.getElementById('register');
+    const button = document.getElementById('button-text');
+    const inputLabel = document.getElementById('label-input-box');
 
     if (checkboxChecked) {
       login.style.color = 'white';
       register.style.color = 'black';
+      button.textContent = "CREATE"
+      inputLabel.textContent = "max: 8 characters"
     } else {
       login.style.color = 'black';
       register.style.color = 'white';
+      button.textContent = "START"
+      inputLabel.textContent = ""
     }
 
     [login, register].forEach((element) => {

@@ -1,0 +1,25 @@
+.link-button {
+  width: 20vmin;
+  height: 6vmin;
+  border-radius: 3vmin;
+  background-color: #87E26D;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.link-button p {
+  font-family: 'Futura PT', sans-serif;
+  font-weight: 700;
+  font-size: 4vmin;
+  text-shadow: rgba(0, 0, 0, 0.4) 0px 0px 18px;;
+  color: white;
+  user-select: none;
+}
+.link-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 32px;
+  background-color: #438134;
+  color: rgb(160, 160, 160);
+  transition: 0.4s;
+}

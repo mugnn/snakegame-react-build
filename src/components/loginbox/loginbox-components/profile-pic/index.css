@@ -1,0 +1,22 @@
+.profile-pic-box {
+  height: 20vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#pic-box {
+  width: 10vmin;
+  height: 10vmin;
+  border-radius: 1vmin;
+  box-shadow: rgb(0, 0, 0, 0.2) 0px 0px 10px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+p {
+  font-family: 'Futura PT', sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 6vmin;
+}

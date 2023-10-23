@@ -1,0 +1,46 @@
+#input-label-section {
+  display: flex;
+  flex-direction: column;
+}
+#label-input-box {
+  font-family: 'Futura PT', sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 1.8vmin;
+  padding-left: 1.8vmin;
+  user-select: none;
+  margin: 0;
+}
+.input-box{
+  width: 34vmin;
+  height: 4.2vmin;
+  background-color: white;
+  border-radius: 2.1vmin;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#input-section {
+  width: 32vmin;
+  height: 3.2vmin;
+  border-radius: 1.6vmin;
+  background-color: white;
+  text-align: justify;
+  border-style: none;
+  font-family: 'Futura PT', sans-serif;
+  font-size: 1.8vmin;
+  font-weight: 600;
+  color: black;
+}
+#input-section::placeholder {
+  font-family: 'Futura PT', sans-serif;
+  font-weight: 700;
+  font-size: 2vmin;
+  color: #394756;
+  user-select: none;
+  cursor: text;
+}
+#input-section:focus {
+  outline: none;
+}

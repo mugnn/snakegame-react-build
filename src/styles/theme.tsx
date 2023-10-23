@@ -1,6 +1,6 @@
 export const colors = {
   p1: '#242936',
-  p2: '#394756', //sidebox
+  p2: '#394756', //sidebox, text(input-box)
   p3: '#2E3547',
   p4: '#4A525C',
   p5: '#232A33',
