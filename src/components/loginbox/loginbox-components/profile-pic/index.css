@@ -10,13 +10,24 @@
   border-radius: 1vmin;
   box-shadow: rgb(0, 0, 0, 0.2) 0px 0px 10px;
   background-color: black;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#pic-box:hover {
+  transition: 0.2s;
+  background-color: white;
+}
+#pic-box:hover p {
+  color: black;
+  transition: 0.2s;
 }
 p {
   font-family: 'Futura PT', sans-serif;
   font-weight: 600;
   color: white;
   font-size: 6vmin;
+  text-shadow: rgb(0, 0, 0, 0.2) 0px 0px 10px;
+  user-select: none;
 }
