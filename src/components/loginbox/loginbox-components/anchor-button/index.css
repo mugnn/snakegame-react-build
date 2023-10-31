@@ -19,7 +19,7 @@
 }
 .link-button:hover {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 32px;
-  background-color: #438134;
+  background-color: #63b34f;
   color: rgb(160, 160, 160);
   transition: 0.4s;
 }

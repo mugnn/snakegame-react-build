@@ -14,6 +14,7 @@ const ProfilePic = () => {
       <div id='pic-box'>
         <p>?</p>
       </div>
+      <img id='pfp-pic' alt='pfp' src=''/>
     </div>
   )
 }

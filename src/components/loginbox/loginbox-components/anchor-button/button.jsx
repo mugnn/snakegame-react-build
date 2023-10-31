@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './index.css'
+import Variables from '../../user-data';
 
 const LinkButton = (props) => {
   const[wasPressed, setPressed] = useState(false);
@@ -8,8 +9,16 @@ const LinkButton = (props) => {
     if(props.name === 'CANCEL') {
       document.getElementById('default-section').style.display = 'flex';
       document.getElementById('pic-select-section').style.display = 'none';
+      document.getElementById('pic-box').style.display = 'flex'
+      document.getElementById('pfp-pic').style.display = 'none'
+    } else if (props.name === 'SELECT') {
+      document.getElementById('default-section').style.display = 'flex';
+      document.getElementById('pic-select-section').style.display = 'none';
+      document.getElementById('pic-box').style.display = 'none'
+      document.getElementById('pfp-pic').style.display = 'flex'
     }
-  }, [wasPressed, props.name])
+    console.log(Variables.pic_id)
+  }, [wasPressed])
 
   const styleColor = {
     backgroundColor: props.color,

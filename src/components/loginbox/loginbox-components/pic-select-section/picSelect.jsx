@@ -1,34 +1,130 @@
 import './index.css'
 import images from './images'
 import LinkButton from '../anchor-button/button'
+import React, {useState, useEffect, useRef} from 'react'
+import Variables from '../../user-data'
 
 const PicSelectSection = () => {
+  const[isSelected, setIsSelected] = useState(false);
+  const[num, setNum] = useState(15);
+  const lastNum = useRef(15);
+  const contClick = useRef(0);
+  let link = useRef('');
+
+
+  useEffect(() => {
+    const image = document.getElementsByClassName('image')[num]
+    const lastImage = document.getElementsByClassName('image')[lastNum.current]
+    const pfp = document.getElementById('pfp-pic')
+    contClick.current++;
+
+    switch (num) {
+      case 0:
+        link.current = images.img1
+        break;
+      case 1:
+        link.current = images.img2
+        break;
+      case 2:
+        link.current = images.img3
+        break;
+      case 3:
+        link.current = images.img4
+        break;
+      case 4:
+        link.current = images.img5
+        break;
+      case 5:
+        link.current = images.img6
+        break;
+      case 6:
+        link.current = images.img7
+        break;
+      case 7:
+        link.current = images.img8
+        break;
+      case 8:
+        link.current = images.img9
+        break;
+      case 9:
+        link.current = images.img10
+        break;
+      case 10:
+        link.current = images.img11
+        break;
+      case 11:
+        link.current = images.img12
+        break;
+      case 12:
+        link.current = images.img13
+        break;
+      case 13:
+        link.current = images.img14
+        break;
+      case 14:
+        link.current = images.img15
+        break;
+      default:
+        break;
+    }
+
+    pfp.src = link.current
+    Variables.pic_id = link.current
+
+    if (lastNum.current !== num) {
+      image.style.width = '10vmin'
+      image.style.height = '10vmin'
+      image.style.borderRadius = '1.25vmin'
+      image.style.transition = '0.2s'
+
+      lastImage.style.width = '8vmin'
+      lastImage.style.height = '8vmin'
+      lastImage.style.borderRadius = '1vmin'
+      lastImage.style.transition = '0.2s'
+    } else if (!(contClick.current % 2 === 0)) {
+      image.style.width = '8vmin'
+      image.style.height = '8vmin'
+      image.style.borderRadius = '1vmin'
+      image.style.transition = '0.2s'
+    } else {
+      image.style.width = '10vmin'
+      image.style.height = '10vmin'
+      image.style.borderRadius = '1.25vmin'
+      image.style.transition = '0.2s'
+    }
+
+    lastNum.current = num
+  }, [num, isSelected])
+
   return(
-    <div id='pic-section'>
-      <div className='pic-row'>
-        <img className='image' src={ images.cat1 } alt='pic1'/>
-        <img className='image' src={ images.cat2 } alt='pic2'/>
-        <img className='image' src={ images.sonic1 } alt='pic3'/>
-      </div>
-      <div className='pic-row'>
-        <img className='image' src={ images.sonic2 } alt='pic4'/>
-        <img className='image' src={ images.sonic3 } alt='pic5'/>
-        <img className='image' src={ images.mario1 } alt='pic6'/>
-      </div>
-      <div className='pic-row'>
-        <img className='image' src={ images.mario2 } alt='pic7'/>
-        <img className='image' src={ images.squirtle } alt='pic8'/>
-        <img className='image' src={ images.spongebob } alt='pic9'/>
-      </div>
-      <div className='pic-row'>
-        <img className='image' src={ images.simp } alt='pic10'/>
-        <img className='image' src={ images.pentagonscapades } alt='pic11'/>
-        <img className='image' src={ images.monk } alt='pic12'/>
-      </div>
-      <div className='pic-row'>
-        <img className='image' src={ images.knuckles } alt='pic13'/>
-        <img className='image' src={ images.gengar } alt='pic14'/>
-        <img className='image' src={ images.comunistdoggo } alt='pic15'/>
+    <div className='pic-section'>
+      <div id='pic-columns' onClick={ () => setIsSelected(!isSelected) }>
+        <div className='pic-row' >
+          <img className='image' src={ images.img1 } alt='pic1' id='pic 01' onClick={ () => setNum(0) } />
+          <img className='image' src={ images.img2 } alt='pic2' id='pic 02' onClick={ () => setNum(1) } />
+          <img className='image' src={ images.img3 } alt='pic3' id='pic 03' onClick={ () => setNum(2) } />
+        </div>
+        <div className='pic-row'>
+          <img className='image' src={ images.img4 } alt='pic4' id='pic 04' onClick={ () => setNum(3) } />
+          <img className='image' src={ images.img5 } alt='pic5' id='pic 05' onClick={ () => setNum(4) } />
+          <img className='image' src={ images.img6 } alt='pic6' id='pic 06' onClick={ () => setNum(5) } />
+        </div>
+        <div className='pic-row'>
+          <img className='image' src={ images.img7 } alt='pic7' id='pic 07' onClick={ () => setNum(6) } />
+          <img className='image' src={ images.img8 } alt='pic8' id='pic 08' onClick={ () => setNum(7) } />
+          <img className='image' src={ images.img9 } alt='pic9' id='pic 09' onClick={ () => setNum(8) } />
+        </div>
+        <div className='pic-row'>
+          <img className='image' src={ images.img10 } alt='pic10' id='pic 10' onClick={ () => setNum(9) } />
+          <img className='image' src={ images.img11 } alt='pic11' id='pic 11' onClick={ () => setNum(10) } />
+          <img className='image' src={ images.img12 } alt='pic12' id='pic 12' onClick={ () => setNum(11) } />
+        </div>
+        <div className='pic-row'>
+          <img className='image' src={ images.img13 } alt='pic13' id='pic 13' onClick={ () => setNum(12) } />
+          <img className='image' src={ images.img14 } alt='pic14' id='pic 14' onClick={ () => setNum(13) } />
+          <img className='image' src={ images.img15 } alt='pic15' id='pic 15' onClick={ () => setNum(14) } />
+          <img className='image' alt='ref-pic' id='ref-pic'/>
+        </div>
       </div>
       <div id='select-cancel-button'>
         <LinkButton name='SELECT' />

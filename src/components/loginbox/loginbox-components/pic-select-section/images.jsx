@@ -1,35 +1,35 @@
-import cat1 from './assets/cat1.jpg'
-import cat2 from './assets/cat2.jpg'
-import sonic1 from './assets/sonic1.jpg' 
-import sonic2 from './assets/sonic2.jpg' 
-import sonic3 from './assets/sonic3.jpg'
-import mario1 from './assets/mario1.jpg' 
-import mario2 from './assets/mario2.jpg' 
-import squirtle from './assets/squirtle.jpg'
-import spongebob from './assets/spongebob.jpg'
-import simp from './assets/simp.jpg' 
-import pentagonscapades from './assets/pentagonescapades.jpg'
-import monk from './assets/monk.jpg'
-import knuckles from './assets/knuckles.jpg'
-import gengar from './assets/gengar.jpg'
-import comunistdoggo from './assets/comunistdoggo.jpg'
+import img1 from './assets/cat1.jpg'
+import img2 from './assets/cat2.jpg'
+import img3 from './assets/sonic1.jpg' 
+import img4 from './assets/sonic2.jpg' 
+import img5 from './assets/sonic3.jpg'
+import img6 from './assets/mario1.jpg' 
+import img7 from './assets/mario2.jpg' 
+import img8 from './assets/squirtle.jpg'
+import img9 from './assets/spongebob.jpg'
+import img10 from './assets/simp.jpg' 
+import img11 from './assets/pentagonescapades.jpg'
+import img12 from './assets/monk.jpg'
+import img13 from './assets/knuckles.jpg'
+import img14 from './assets/gengar.jpg'
+import img15 from './assets/comunistdoggo.jpg'
 
 const images = {
-  cat1,
-  cat2,
-  sonic1,
-  sonic2,
-  sonic3,
-  mario1,
-  mario2,
-  squirtle,
-  spongebob,
-  simp,
-  pentagonscapades,
-  monk,
-  knuckles,
-  gengar,
-  comunistdoggo
+  img1, 
+  img2, 
+  img3, 
+  img4, 
+  img5, 
+  img6, 
+  img7, 
+  img8, 
+  img9, 
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
+  img15
 }
 
 export default images
