@@ -71,6 +71,9 @@ const PicSelectSection = () => {
     pfp.src = link.current
     Variables.pic_id = link.current
 
+    document.getElementById('pic-box').style.display = 'none'
+    document.getElementById('pfp-pic').style.display = 'flex'
+
     if (lastNum.current !== num) {
       image.style.width = '10vmin'
       image.style.height = '10vmin'
@@ -81,11 +84,17 @@ const PicSelectSection = () => {
       lastImage.style.height = '8vmin'
       lastImage.style.borderRadius = '1vmin'
       lastImage.style.transition = '0.2s'
+      
+      contClick.current = 0
     } else if (!(contClick.current % 2 === 0)) {
       image.style.width = '8vmin'
       image.style.height = '8vmin'
       image.style.borderRadius = '1vmin'
       image.style.transition = '0.2s'
+
+      document.getElementById('pic-box').style.display = 'flex'
+      document.getElementById('pfp-pic').style.display = 'none'
+      Variables.pic_id = ''
     } else {
       image.style.width = '10vmin'
       image.style.height = '10vmin'
@@ -128,7 +137,7 @@ const PicSelectSection = () => {
       </div>
       <div id='select-cancel-button'>
         <LinkButton name='SELECT' />
-        <LinkButton name='CANCEL' color='#a0a0a0' />
+        <LinkButton name='CANCEL' color='#a0a0a0' num={ num } />
       </div>
     </div>
   )
