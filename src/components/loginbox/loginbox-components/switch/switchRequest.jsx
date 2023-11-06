@@ -1,5 +1,6 @@
 import './index.css'
 import React, { useState, useEffect } from 'react';
+import Variables from '../../user-data';
 
 const SwitchRequest = () => {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
@@ -7,18 +8,20 @@ const SwitchRequest = () => {
   useEffect(() => {
     const login = document.getElementById('login');
     const register = document.getElementById('register');
-    const button = document.getElementById('button-text');
     const inputLabel = document.getElementById('label-input-box');
+    const button = document.getElementById('button-text');
 
     if (checkboxChecked) {
       login.style.color = 'white';
       register.style.color = 'black';
       button.textContent = "CREATE"
-      inputLabel.textContent = "max: 8 characters"
+      Variables.current_button = 'create'
+      inputLabel.textContent = "max: 16 characters"
     } else {
       login.style.color = 'black';
       register.style.color = 'white';
       button.textContent = "START"
+      Variables.current_button = 'start'
       inputLabel.textContent = ""
     }
 

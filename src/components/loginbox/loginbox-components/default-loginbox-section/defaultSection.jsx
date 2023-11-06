@@ -10,7 +10,7 @@ const DefaultLoginBoxSection = () => {
       <ProfilePic />
       <SwitchRequest />
       <InputBox />
-      <LinkButton name='START'/>
+      <LinkButton name='START' />
     </div>
   )
 }

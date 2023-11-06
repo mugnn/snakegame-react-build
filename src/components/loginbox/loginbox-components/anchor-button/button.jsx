@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import './index.css'
+import React, { useState, useEffect} from 'react';
 import Variables from '../../user-data';
+import Verify from '../../check-in';
+import './index.css'
 
 const LinkButton = (props) => {
   const[wasPressed, setPressed] = useState(false);
@@ -9,55 +10,63 @@ const LinkButton = (props) => {
     const inputBox = document.getElementById('input-section');
     Variables.user_name = inputBox.value
 
-    if(props.name === 'CANCEL') {
-      const image = document.getElementsByClassName('image')[props.num]
-      image.style.width = '8vmin'
-      image.style.height = '8vmin'
-      image.style.borderRadius = '1vmin'
-      image.style.transition = '0.2s'
-
-      document.getElementById('default-section').style.display = 'flex';
-      document.getElementById('pic-select-section').style.display = 'none';
-      document.getElementById('pic-box').style.display = 'flex'
-      document.getElementById('pfp-pic').style.display = 'none'
+    if(wasPressed) {
+      const verify = new Verify(Variables.user_name, Variables.pic_id, Variables.current_button)
       
-      Variables.pic_id = ''
-    } else if (props.name === 'SELECT') {
+      if(props.name === 'CANCEL') {
+        const image = document.getElementsByClassName('image')[props.num]
+        image.style.width = '8vmin'
+        image.style.height = '8vmin'
+        image.style.borderRadius = '1vmin'
+        image.style.transition = '0.2s'
+
+        document.getElementById('default-section').style.display = 'flex';
+        document.getElementById('pic-select-section').style.display = 'none';
+        document.getElementById('pic-box').style.display = 'flex'
+        document.getElementById('pfp-pic').style.display = 'none'
+        
+        Variables.pic_id = ''
+      } else if (props.name === 'SELECT') {
+        document.getElementById('default-section').style.display = 'flex';
+        document.getElementById('pic-select-section').style.display = 'none';
+      } else if (Variables.current_button === 'start') {
+        
+        /*
+        function (verify if values is ok) {
+          function (verify in database) {
+            if ok {
+              <link to snakegame/>
+            } else {
+              function (alert => values doesn't match with any value in database)
+            }
+          }
+        } else{
+          function (alert => missing password or pic)
+        }
+        */
+        verify.validation()
+      } else if (Variables.current_button === 'create') {
+
+        /*
+        function (verify if values is ok) {
+          function (verify in database) {
+            if ok {
+              function (push values into database)
+              <link to snakegame/>
+            } else {
+              function (alert => this set of values already exists in database)
+            }
+          }
+        } else{
+          function (alert => missing password or pic)
+        }
+        */
+        verify.validation()
+      }
+      setPressed(false)
+    } else {
       document.getElementById('default-section').style.display = 'flex';
       document.getElementById('pic-select-section').style.display = 'none';
-    } else if (props.name === 'START') {
-
-      /*
-      function (verify if values is ok) {
-        function (verify in database) {
-          if ok {
-            <link to snakegame/>
-          } else {
-            function (alert => values doesn't match with any value in database)
-          }
-        }
-      } else{
-        function (alert => missing password or pic)
-      }
-      */
-
-    } else if (props.name === 'CREATE') {
-
-      /*
-      function (verify if values is ok) {
-        function (verify in database) {
-          if ok {
-            function (push values into database)
-            <link to snakegame/>
-          } else {
-            function (alert => this set of values already exists in database)
-          }
-        }
-      } else{
-        function (alert => missing password or pic)
-      }
-      */
-
     }
     // eslint-disable-next-line
   }, [wasPressed])

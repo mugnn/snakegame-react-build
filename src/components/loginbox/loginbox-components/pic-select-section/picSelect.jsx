@@ -13,96 +13,99 @@ const PicSelectSection = () => {
 
 
   useEffect(() => {
-    const image = document.getElementsByClassName('image')[num]
-    const lastImage = document.getElementsByClassName('image')[lastNum.current]
-    const pfp = document.getElementById('pfp-pic')
-    contClick.current++;
+    if (isSelected) {
+      const image = document.getElementsByClassName('image')[num]
+      const lastImage = document.getElementsByClassName('image')[lastNum.current]
+      const pfp = document.getElementById('pfp-pic')
+      contClick.current++;
 
-    switch (num) {
-      case 0:
-        link.current = images.img1
-        break;
-      case 1:
-        link.current = images.img2
-        break;
-      case 2:
-        link.current = images.img3
-        break;
-      case 3:
-        link.current = images.img4
-        break;
-      case 4:
-        link.current = images.img5
-        break;
-      case 5:
-        link.current = images.img6
-        break;
-      case 6:
-        link.current = images.img7
-        break;
-      case 7:
-        link.current = images.img8
-        break;
-      case 8:
-        link.current = images.img9
-        break;
-      case 9:
-        link.current = images.img10
-        break;
-      case 10:
-        link.current = images.img11
-        break;
-      case 11:
-        link.current = images.img12
-        break;
-      case 12:
-        link.current = images.img13
-        break;
-      case 13:
-        link.current = images.img14
-        break;
-      case 14:
-        link.current = images.img15
-        break;
-      default:
-        break;
+      switch (num) {
+        case 0:
+          link.current = images.img1
+          break;
+        case 1:
+          link.current = images.img2
+          break;
+        case 2:
+          link.current = images.img3
+          break;
+        case 3:
+          link.current = images.img4
+          break;
+        case 4:
+          link.current = images.img5
+          break;
+        case 5:
+          link.current = images.img6
+          break;
+        case 6:
+          link.current = images.img7
+          break;
+        case 7:
+          link.current = images.img8
+          break;
+        case 8:
+          link.current = images.img9
+          break;
+        case 9:
+          link.current = images.img10
+          break;
+        case 10:
+          link.current = images.img11
+          break;
+        case 11:
+          link.current = images.img12
+          break;
+        case 12:
+          link.current = images.img13
+          break;
+        case 13:
+          link.current = images.img14
+          break;
+        case 14:
+          link.current = images.img15
+          break;
+        default:
+          break;
+      }
+
+      pfp.src = link.current
+      Variables.pic_id = link.current
+
+      document.getElementById('pic-box').style.display = 'none'
+      document.getElementById('pfp-pic').style.display = 'flex'
+
+      if (lastNum.current !== num) {
+        image.style.width = '10vmin'
+        image.style.height = '10vmin'
+        image.style.borderRadius = '1.25vmin'
+        image.style.transition = '0.2s'
+
+        lastImage.style.width = '8vmin'
+        lastImage.style.height = '8vmin'
+        lastImage.style.borderRadius = '1vmin'
+        lastImage.style.transition = '0.2s'
+        
+        contClick.current = 0
+      } else if (!(contClick.current % 2 === 0)) {
+        image.style.width = '8vmin'
+        image.style.height = '8vmin'
+        image.style.borderRadius = '1vmin'
+        image.style.transition = '0.2s'
+
+        document.getElementById('pic-box').style.display = 'flex'
+        document.getElementById('pfp-pic').style.display = 'none'
+        Variables.pic_id = ''
+      } else {
+        image.style.width = '10vmin'
+        image.style.height = '10vmin'
+        image.style.borderRadius = '1.25vmin'
+        image.style.transition = '0.2s'
+      }
+
+      lastNum.current = num
     }
-
-    pfp.src = link.current
-    Variables.pic_id = link.current
-
-    document.getElementById('pic-box').style.display = 'none'
-    document.getElementById('pfp-pic').style.display = 'flex'
-
-    if (lastNum.current !== num) {
-      image.style.width = '10vmin'
-      image.style.height = '10vmin'
-      image.style.borderRadius = '1.25vmin'
-      image.style.transition = '0.2s'
-
-      lastImage.style.width = '8vmin'
-      lastImage.style.height = '8vmin'
-      lastImage.style.borderRadius = '1vmin'
-      lastImage.style.transition = '0.2s'
-      
-      contClick.current = 0
-    } else if (!(contClick.current % 2 === 0)) {
-      image.style.width = '8vmin'
-      image.style.height = '8vmin'
-      image.style.borderRadius = '1vmin'
-      image.style.transition = '0.2s'
-
-      document.getElementById('pic-box').style.display = 'flex'
-      document.getElementById('pfp-pic').style.display = 'none'
-      Variables.pic_id = ''
-    } else {
-      image.style.width = '10vmin'
-      image.style.height = '10vmin'
-      image.style.borderRadius = '1.25vmin'
-      image.style.transition = '0.2s'
-    }
-
-    lastNum.current = num
+    setIsSelected(false)
   }, [num, isSelected])
 
   return(
