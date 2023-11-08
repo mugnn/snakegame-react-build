@@ -30,37 +30,8 @@ const LinkButton = (props) => {
         document.getElementById('default-section').style.display = 'flex';
         document.getElementById('pic-select-section').style.display = 'none';
       } else if (Variables.current_button === 'start') {
-        
-        /*
-        function (verify if values is ok) {
-          function (verify in database) {
-            if ok {
-              <link to snakegame/>
-            } else {
-              function (alert => values doesn't match with any value in database)
-            }
-          }
-        } else{
-          function (alert => missing password or pic)
-        }
-        */
         verify.validation()
       } else if (Variables.current_button === 'create') {
-
-        /*
-        function (verify if values is ok) {
-          function (verify in database) {
-            if ok {
-              function (push values into database)
-              <link to snakegame/>
-            } else {
-              function (alert => this set of values already exists in database)
-            }
-          }
-        } else{
-          function (alert => missing password or pic)
-        }
-        */
         verify.validation()
       }
       setPressed(false)

@@ -1,5 +1,4 @@
 import './index.css'
-// import colors from './../../styles/theme.tsx'
 
 const Main = () => {
   return(
