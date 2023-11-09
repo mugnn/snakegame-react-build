@@ -1,10 +1,12 @@
 import React, { useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import Variables from '../../user-data';
 import Verify from '../../check-in';
 import './index.css'
 
 const LinkButton = (props) => {
   const[wasPressed, setPressed] = useState(false);
+  const navigate = useNavigate();
   
   useEffect(() => {
     const inputBox = document.getElementById('input-section');
@@ -29,10 +31,12 @@ const LinkButton = (props) => {
       } else if (props.name === 'SELECT') {
         document.getElementById('default-section').style.display = 'flex';
         document.getElementById('pic-select-section').style.display = 'none';
-      } else if (Variables.current_button === 'start') {
-        verify.validation()
-      } else if (Variables.current_button === 'create') {
-        verify.validation()
+      } else if (Variables.current_button === 'start' || Variables.current_button === 'create') {
+        verify.validation((result) => {
+          if (result) {
+            navigate('/game');
+          }
+        });
       }
       setPressed(false)
     } else {
