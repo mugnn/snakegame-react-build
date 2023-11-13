@@ -1,0 +1,32 @@
+#current-user-stats {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 31vw;
+  height: 38vh;
+}
+#u-stats-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 17vmin;
+  height: 30vh;
+}
+#u-stats-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 17vmin;
+  height: 30vh;
+}
+.u-text {
+  font-family: 'Futura PT', sans-serif;
+  font-weight: 700;
+  font-size: 2.6vmin;
+  color: white;
+  margin: 0;
+  user-select: none;
+}

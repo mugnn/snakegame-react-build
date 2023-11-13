@@ -1,0 +1,80 @@
+#time-counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10vmin;
+  height: 30%;
+}
+#trigger-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
+}
+#trigger-start {
+  background-color: #87E26D;
+}
+#trigger-start:hover {
+  background-color: #6fb95a;
+  transition: 0.2s;
+}
+#trigger-stop {
+  background-color: #E06E6E;
+}
+#trigger-stop:hover {
+  background-color: #b45858;
+  transition: 0.2s;
+}
+#trigger-pause {
+  background-color: #F2E75F;
+}
+#trigger-pause:hover {
+  background-color: #c4bc4c;
+  transition: 0.2s;
+}
+.trigger-button {
+  height: 4.5vmin;
+  width: 4.5vmin;
+  border-radius: 1vmin;
+  box-shadow: rgb(0, 0, 0, 0.3) 0px 0px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#img-start-trigger {
+  height: 2.3vmin;
+  padding-left: 0.4vmin;
+}
+#img-stop-trigger {
+  height: 4vmin;
+  padding-bottom: 0.4vmin;
+}
+#img-pause-trigger {
+  height: 2vmin;
+}
+#time-counter-itself {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 10vmin;
+}
+#time-text {
+  font-family: 'Futura PT', sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 5vmin;
+  margin: 0;
+  user-select: none;
+}
+#counter {
+  text-align: right;
+  width: 13vmin;
+  font-family: 'Futura PT', sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 3vmin;
+  padding-right: 1.2vmin;
+  margin: 0;
+  user-select: none;
+}

@@ -1,8 +1,23 @@
+import CenterComponents from '../../components/main-page/main-page-components/center-components/centerComponents.jsx'
+import TimeCounter from '../../components/main-page/main-page-components/left-side-components/timeCounter.jsx'
+import RightSideComponents from '../../components/main-page/main-page-components/right-side-components/rightComponents.jsx'
+import CurrentUserStats from '../../components/main-page/main-page-components/score-moves-stats/currentStats.jsx'
 import './index.css'
 
 const Main = () => {
   return(
     <div id='main-page'>
+      <div id='left-main-section'>
+        <p id='snakegame-logo'>snakegame</p>
+        <TimeCounter />
+        <CurrentUserStats />
+      </div>
+      <div id='center-main-section'>
+        <CenterComponents />
+      </div>
+      <div id='right-main-section'>
+        <RightSideComponents />
+      </div>
     </div>
   )
 }

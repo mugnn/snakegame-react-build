@@ -12,7 +12,7 @@ const ProfilePic = () => {
   return(
     <div className='profile-pic-box' onClick={() => setPressed(!wasPressed)}>
       <div id='pic-box'>
-        <p>?</p>
+        <p id='button-symbol'>?</p>
       </div>
       <img id='pfp-pic' alt='pfp' src=''/>
     </div>
