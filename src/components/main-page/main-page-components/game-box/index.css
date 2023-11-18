@@ -21,3 +21,9 @@
 #game-table-img {
   -webkit-user-drag: none;
 }
+#play__board {
+  width: 60vmin;
+  height: 68.571428vmin;
+  border-radius: 0 0 2vmin 2vmin;
+  background: url('./assets/game-table.svg') bottom no-repeat;
+}
