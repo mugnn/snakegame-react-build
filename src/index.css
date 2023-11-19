@@ -11,3 +11,7 @@
 .swal2-image {
   border-radius: 1vmin;
 }
+.swal2-html-container {
+  font-family: 'Futura PT', sans-serif;
+  font-weight: 600;
+}

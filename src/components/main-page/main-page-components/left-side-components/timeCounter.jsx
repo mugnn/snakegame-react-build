@@ -2,7 +2,10 @@ import "./index.css";
 import startImg from "./assets/start.svg";
 import stopImg from "./assets/stop.svg";
 import pauseImg from "./assets/pause.svg";
-import appState from "../..";
+// eslint-disable-next-line
+import Swal from "sweetalert2";
+// eslint-disable-next-line
+import { useGlobalState, setFinished, setPause, setContinue, verifyStop, setQuit, setNull } from "../../state";
 import { useState, useEffect, useRef } from "react";
 import $ from "jquery";
 
@@ -12,43 +15,19 @@ const TimeCounter = () => {
   const [resume, setResume] = useState(false);
   const [stop, setStop] = useState(false);
 
+  const [globalState] = useGlobalState('globalState');
 
-  // tentar trocar isso por variavel global
+  // tentar trocar isso por variavel global -->
   useEffect(() => {
-    document.addEventListener("keyup", getStarted);
-    const interval = setInterval(() => {
-      if (appState.gameState === -1) {
-        setResume(true);
-        setStop(true);
-      } else if (appState.gameState === 0) {
-        setResume(true);
-      }
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  function getStarted(event) {
-    switch (event.key) {
-      case "ArrowUp":
-      case "w":
-      case "ArrowDown":
-      case "s":
-      case "ArrowLeft":
-      case "a":
-      case "ArrowRight":
-      case "d":
-        console.log(appState.counterState)
-        console.log(appState.gameState)
-        console.log(appState.toReset)
-        if (appState.counterState) {
-          setStart(true)
-        }
-        break;
-      default:
-        break;
+    if (globalState === 1) {
+      setStart(true);
+    } else if (globalState === 0) {
+      setResume(true);
+    } else if (globalState === -1) {
+      setResume(true);
+      setStop(true);
     }
-  }
+  }, [globalState]);
 
   let timerInterval = useRef();
   let milliseconds = useRef(0);
@@ -76,30 +55,46 @@ const TimeCounter = () => {
       }
       $("#counter").text(formatTime());
     };
+
     if (start) {
       if (!timerInterval.current) {
-        console.log('2')
-        appState.counterState = false;
         timerInterval.current = setInterval(updateTimer, 1);
       }
       setStart(false);
     } else if (resume) {
       if (timerInterval.current) {
         clearInterval(timerInterval.current);
-        timerInterval.current = false;
-        appState.gameState = 0;
+        timerInterval.current = 0;
+        verifyStop.vState = 0;
       }
       setResume(false);
     } else if (stop) {
       if (!timerInterval.current) {
-        milliseconds.current = 0;
-        seconds.current = 0;
-        minutes.current = 0;
-        timerInterval.current = false;
-        if (appState.gameState === 0) {
-          appState.toReset = true;
+        if (globalState !== -1) {
+          verifyStop.vAdvMode = true;
+          Swal.fire({
+            title: "Warning!",
+            text: "Are you sure you're going to give up?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "ok",
+            cancelButtonText: "cancel",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              setNull();
+              setQuit();
+            } else {
+              console.log('cancel')
+              verifyStop.vAdvMode = false;
+            }
+          });
+        } else {
+          milliseconds.current = 0;
+          seconds.current = 0;
+          minutes.current = 0;
+          timerInterval.current = 0;
+          $("#counter").text(formatTime());
         }
-        $("#counter").text(formatTime());
       }
       setStop(false);
     }
@@ -115,14 +110,14 @@ const TimeCounter = () => {
         <div
           id="trigger-stop"
           className="trigger-button"
-          onClick={() => setStop(!stop)}
+          onClick={() => setStop(true)}
         >
           <img alt="start" src={stopImg} id="img-stop-trigger" />
         </div>
         <div
           id="trigger-pause"
           className="trigger-button"
-          onClick={() => setResume(!resume)}
+          onClick={() => setResume(true)}
         >
           <img alt="start" src={pauseImg} id="img-pause-trigger" />
         </div>
