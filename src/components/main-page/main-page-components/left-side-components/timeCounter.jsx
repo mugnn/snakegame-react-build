@@ -83,9 +83,10 @@ const TimeCounter = () => {
             if (result.isConfirmed) {
               setNull();
               setQuit();
-            } else {
+            } else if (result.dismiss) {
               console.log('cancel')
               verifyStop.vAdvMode = false;
+              verifyStop.vState = 0;
             }
           });
         } else {
