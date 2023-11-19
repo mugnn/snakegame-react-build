@@ -8,6 +8,7 @@ import {
   setNull,
   verifyStop,
   setQuit,
+  getAction,
 } from "../../state";
 
 class SnakeGame {
@@ -87,7 +88,7 @@ class SnakeGame {
         this.snakeBody.push([this.foodX, this.foodY]);
       }
 
-      console.log(this.snakeBody);
+      getAction();
       this.placeFood();
       this.updatePoints();
     }
@@ -188,7 +189,6 @@ class SnakeGame {
       this.canChangeDirection = true;
     }
     
-    console.log('change direction is: ', this.canChangeDirection);
     if (this.canChangeDirection) {
       switch (event.key) {
         case "ArrowUp":
@@ -247,7 +247,6 @@ class SnakeGame {
     setNull();
     setQuit();
     verifyStop.vState = null;
-    verifyStop.vQuit = false;
     verifyStop.vAdvMode = false;
     this.counter = 0;
     this.snakeX = this.blockSize * 5;

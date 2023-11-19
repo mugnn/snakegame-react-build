@@ -3,7 +3,15 @@ import { createGlobalState } from "react-hooks-global-state";
 const { setGlobalState, useGlobalState } = createGlobalState({
   globalState: null,
   quit: true,
+  getSnakeAction: false,
 });
+
+export const getAction = () => {
+  setGlobalState('getSnakeAction', true)
+}
+export const resetAction = () => {
+  setGlobalState('getSnakeAction', false)
+}
 
 export const setNull = () => {
   setGlobalState('globalState', null);
@@ -27,7 +35,6 @@ export const resetQuit = () => {
 
 export let verifyStop = {
   vState: null,
-  vQuit: false,
   vAdvMode: false,
 };
 

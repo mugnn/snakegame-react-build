@@ -14,7 +14,6 @@ const GameBox = () => {
         setSnakeGame(newSnakeGame);
       }
 
-      // Verifica se a instância está definida antes de chamar o método resetValues
       if (snakeGame && typeof snakeGame.resetValues === 'function') {
         snakeGame.resetValues();
         setFinished();

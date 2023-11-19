@@ -84,7 +84,6 @@ const TimeCounter = () => {
               setNull();
               setQuit();
             } else if (result.dismiss) {
-              console.log('cancel')
               verifyStop.vAdvMode = false;
               verifyStop.vState = 0;
             }
