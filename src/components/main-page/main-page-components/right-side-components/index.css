@@ -18,6 +18,11 @@
     transition-property: opacity;
     opacity: 1;
   }
+  #match-component {
+    width: 26vmin;
+    background-color: #2E3547;
+    border-radius: 1vmin;
+  }
 }
 #user-info {
   display: flex;
@@ -49,4 +54,13 @@
 #user-historic-column:not(:hover) #user-main-section-name {
   transition-duration: 0s;
   opacity: 0;
+}
+
+#match-queue {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-top: 4vmin;
+  padding-left: 3vmin;
+  transition: 0.2s ease-in-out;
 }

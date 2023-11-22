@@ -1,6 +1,6 @@
 import "./index.css";
 import SnakeGame from './snakegame';
-import { useGlobalState, setFinished, resetQuit } from "../../state";
+import { useGlobalState, setFinished, resetQuit} from "../../state";
 import { useState, useEffect } from "react";
 
 const GameBox = () => {

@@ -9,6 +9,7 @@ import {
   verifyStop,
   setQuit,
   getAction,
+  allowLoad
 } from "../../state";
 
 class SnakeGame {
@@ -31,7 +32,7 @@ class SnakeGame {
     this.currentPosY = this.snakeY;
     this.velocityX = 0;
     this.velocityY = 0;
-    this.velocityUpdate = 0.2;
+    this.velocityUpdate = 0.1;
 
     this.canChangeDirection = false;
     this.currentKey = {
@@ -49,7 +50,7 @@ class SnakeGame {
     //--gameOver--
     this.gameOver = false;
 
-    document.addEventListener("keyup", this.changeDirection.bind(this));
+    document.addEventListener('keydown', this.changeDirection.bind(this));
   }
 
   start() {
@@ -60,6 +61,7 @@ class SnakeGame {
   update() {
     if (this.gameOver) {
       verifyStop.vAdvMode = true;
+      allowLoad();
       setFinished();
       return;
     }

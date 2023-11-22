@@ -5,7 +5,13 @@ import pauseImg from "./assets/pause.svg";
 // eslint-disable-next-line
 import Swal from "sweetalert2";
 // eslint-disable-next-line
-import { useGlobalState, setFinished, setPause, setContinue, verifyStop, setQuit, setNull } from "../../state";
+import {
+  useGlobalState,
+  verifyStop,
+  setQuit,
+  setNull,
+  allowLoad,
+} from "../../state";
 import { useState, useEffect, useRef } from "react";
 import $ from "jquery";
 
@@ -15,7 +21,7 @@ const TimeCounter = () => {
   const [resume, setResume] = useState(false);
   const [stop, setStop] = useState(false);
 
-  const [globalState] = useGlobalState('globalState');
+  const [globalState] = useGlobalState("globalState");
 
   // tentar trocar isso por variavel global -->
   useEffect(() => {
@@ -81,6 +87,7 @@ const TimeCounter = () => {
             cancelButtonText: "cancel",
           }).then((result) => {
             if (result.isConfirmed) {
+              allowLoad();
               setNull();
               setQuit();
             } else if (result.dismiss) {

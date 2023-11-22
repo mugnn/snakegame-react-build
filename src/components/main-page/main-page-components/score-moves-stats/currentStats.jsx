@@ -30,7 +30,7 @@ const CurrentUserStats = () => {
     }
   }
 
-  document.addEventListener('keyup', directionCounter)
+  document.addEventListener('keydown', directionCounter)
 
   useEffect(() => {
     if (globalState === -1) {
