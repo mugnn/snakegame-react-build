@@ -1,7 +1,7 @@
 import './index.css'
 import $ from "jquery";
 // eslint-disable-next-line
-import { useGlobalState, setFinished, setPause, setContinue, resetAction } from "../../state";
+import { useGlobalState, setFinished, setPause, setContinue, resetAction, updateMoves } from "../../state";
 import { useState, useEffect, useRef } from "react";
 
 const CurrentUserStats = () => {
@@ -37,6 +37,7 @@ const CurrentUserStats = () => {
       moves.current = 0;
     } else if (globalState === 1) {
       moves.current++;
+      updateMoves(moves.current);
       $("#moves-itself").text(moves.current);
     }
   }, [direction, globalState]);
@@ -55,7 +56,6 @@ const CurrentUserStats = () => {
       compareScore.current.push(userScore.current)
       compareScore.current = [...new Set(compareScore.current)];
       compareScore.current.sort((a, b) => b - a);
-      console.log(compareScore.current);
 
       userScore.current = 0;
     }

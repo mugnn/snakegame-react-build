@@ -1,21 +1,31 @@
 import './index.css'
 import Variables from '../../../loginbox/user-data'
+// eslint-disable-next-line
 import MatchComponent from '../match-component/matchComponent'
-import { useGlobalState, denyLoad } from '../../state'
+import { useGlobalState, denyLoad, resetMatchValues } from '../../state'
 import { useEffect } from 'react'
+import MatchOps from '../../get-push-match'
 
 const RightSideComponents = () => {
-  // const [userID] = useGlobalState('userID');
+  const [userID] = useGlobalState('userID');
   const [load] = useGlobalState('loadIntoDatabase');
 
+  //match-variables
+  const [result] = useGlobalState('final');
+  const [finalScore] = useGlobalState('score');
+  const [moves] = useGlobalState('moves');
+  const [time] = useGlobalState('time');
+
   useEffect(() => {
-    console.log(load)
     if (load) {
-  
-      //call api control class (get-push-match.js)
-      
+      const getPushMatch = new MatchOps(result, finalScore, moves, time);
+      getPushMatch.getNewMatch(userID).then((matchID) => {
+        getPushMatch.insertValues(matchID);
+      });
+      resetMatchValues();
       denyLoad();
     }
+    // eslint-disable-next-line
   }, [load]);
 
   return(
@@ -25,7 +35,6 @@ const RightSideComponents = () => {
         <p id='user-main-section-name'>@{ Variables.user_name }</p>
       </div>
       <div id='match-queue'>
-        <MatchComponent />
       </div>
     </div>
   )

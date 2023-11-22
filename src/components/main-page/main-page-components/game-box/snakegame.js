@@ -9,7 +9,9 @@ import {
   verifyStop,
   setQuit,
   getAction,
-  allowLoad
+  allowLoad,
+  finalResult,
+  updateScore
 } from "../../state";
 
 class SnakeGame {
@@ -61,6 +63,7 @@ class SnakeGame {
   update() {
     if (this.gameOver) {
       verifyStop.vAdvMode = true;
+      finalResult('Defeat');
       allowLoad();
       setFinished();
       return;
@@ -242,6 +245,7 @@ class SnakeGame {
 
   updatePoints() {
     this.counter += 50;
+    updateScore(this.counter);
     $("#score-value").text(this.counter);
   }
 

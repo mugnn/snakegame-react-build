@@ -11,6 +11,8 @@ import {
   setQuit,
   setNull,
   allowLoad,
+  finalResult,
+  finalTime,
 } from "../../state";
 import { useState, useEffect, useRef } from "react";
 import $ from "jquery";
@@ -59,6 +61,7 @@ const TimeCounter = () => {
           minutes.current += 1;
         }
       }
+      finalTime(formatTime());
       $("#counter").text(formatTime());
     };
 
@@ -87,6 +90,7 @@ const TimeCounter = () => {
             cancelButtonText: "cancel",
           }).then((result) => {
             if (result.isConfirmed) {
+              finalResult('Unfinished');
               allowLoad();
               setNull();
               setQuit();
