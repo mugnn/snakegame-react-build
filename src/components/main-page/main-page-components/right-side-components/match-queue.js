@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setMatchQueue } from "../../state";
 
 class MatchQueue {
   constructor(user_id) {
@@ -9,7 +10,6 @@ class MatchQueue {
       const queue = await axios.get(
         `http://localhost:3001/getMatchesID?userId=${this.user_id}`
       );
-      console.log('match id queue: ', queue.data);
       this.getValues(queue.data);
     } catch (error) {
       console.log(error);
@@ -20,7 +20,7 @@ class MatchQueue {
       const queue = await axios.get(
         `http://localhost:3001/getMatchesStats?matches_id_queue=${matches_id_queue}`
       );
-      console.log('matches values data: ', queue.data);
+      setMatchQueue(queue.data);
     } catch (error) {
       console.log(error);
     }

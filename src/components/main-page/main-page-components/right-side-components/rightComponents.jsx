@@ -22,11 +22,15 @@ const RightSideComponents = () => {
   const [finalScore] = useGlobalState("score");
   const [moves] = useGlobalState("moves");
   const [time] = useGlobalState("time");
-  //const [matchesQueue] = useGlobalState("matchesQueue");
+  const [matchesQueue] = useGlobalState("matchesQueue");
+
+  //aqui =)
+  useEffect(() => {
+    console.log(matchesQueue)
+  }, [matchesQueue])
 
   useEffect(() => {
     if (loadQueue) {
-      console.log(userID);
       const matchQueue = new MatchQueue(userID); 
       matchQueue.getMatchQueue();
       resetLoadQueueData();

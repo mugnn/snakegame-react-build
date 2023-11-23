@@ -30,10 +30,9 @@ class MatchOps {
   }
   addMatchValues = async (match_id, result, score, moves, time) => {
     try {
-      const res = await axios.get(
+      await axios.get(
         `http://localhost:3001/insertMatchValues?matchId=${match_id}&matchResult=${result}&matchScore=${score}&matchMoves=${moves}&matchTime=${time}`
       );
-      console.log(res.data);
       setLoadQueueData();
     } catch (error) {
       console.log(error);
