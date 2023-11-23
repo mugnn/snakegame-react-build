@@ -1,7 +1,7 @@
 import './index.css'
 import $ from "jquery";
 // eslint-disable-next-line
-import { useGlobalState, setFinished, setPause, setContinue, resetAction, updateMoves } from "../../state";
+import { useGlobalState, resetAction, updateMoves } from "../../state";
 import { useState, useEffect, useRef } from "react";
 
 const CurrentUserStats = () => {

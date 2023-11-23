@@ -1,14 +1,6 @@
-#match-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-  height: 100%;
-  gap: 1.5vmin;
-  transition: 0.2s ease-in-out;
-}
 #match-component {
+  display: flex;
+  flex-direction: row;
   width: 6vmin;
   height: 6vmin;
   background-color: #2E3547;
@@ -16,7 +8,89 @@
   border-radius: 1vmin;
   transition: 0.2s ease-in-out;
 }
+
 #match-component:hover {
   height: 12vmin;
   transition: 0.2s ease-in-out;
+
+  #score-content {
+    transition-delay: 0.3s;
+    transition-property: opacity;
+    opacity: 1;
+  }
+  #moves-content {
+    transition-delay: 0.3s;
+    transition-property: opacity;
+    opacity: 1;
+  }
+  #time-content {
+    transition-delay: 0.3s;
+    transition-property: opacity;
+    opacity: 1;
+  }
+}
+
+#match-final-image {
+  align-self: flex-start;
+  padding-top: 1vmin;
+  padding-left: 1vmin;
+  height: 4vmin;
+  width: 4vmin;
+}
+
+#stats-itself {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+#result-content {
+  font-family: 'Futura PT', sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 1.3rem;
+  padding-top: 1.5vmin;
+  padding-left: 2vmin;
+  user-select: none;
+  margin: 0;
+  transition: opacity 0.2s ease-in-out;
+  transition-duration: 0.2s;
+  opacity: 0;
+}
+#score-content {
+  font-family: 'Futura PT', sans-serif;
+  font-weight: 500;
+  color: white;
+  font-size: 1rem;
+  user-select: none;
+  transition: opacity 0.2s ease-in-out;
+  transition-duration: 0.2s;
+  padding-left: 2vmin;
+  margin: 0;
+  opacity: 0;
+}
+#moves-content {
+  font-family: 'Futura PT', sans-serif;
+  font-weight: 500;
+  color: white;
+  font-size: 1rem;
+  user-select: none;
+  transition: opacity 0.2s ease-in-out;
+  transition-duration: 0.2s;
+  padding-left: 2vmin;
+  margin: 0;
+  opacity: 0;
+}
+#time-content {
+  font-family: 'Futura PT', sans-serif;
+  font-weight: 500;
+  color: white;
+  font-size: 1rem;
+  user-select: none;
+  transition: opacity 0.2s ease-in-out;
+  transition-duration: 0.2s;
+  padding-left: 2vmin;
+  margin: 0;
+  opacity: 0;
 }

@@ -26,7 +26,7 @@ const RightSideComponents = () => {
 
   //aqui =)
   useEffect(() => {
-    console.log(matchesQueue)
+    console.log(matchesQueue);
   }, [matchesQueue])
 
   useEffect(() => {
@@ -48,13 +48,20 @@ const RightSideComponents = () => {
     // eslint-disable-next-line
   }, [load, userID]);
 
+  const scores = matchesQueue.map(matchData => matchData[0]);
+  const highestScore = Math.max(...scores);
+
   return (
     <div id="user-historic-column">
       <div id="user-info">
         <img id="user-main-section-pic" alt="user-pfp" src={Variables.pic_id} />
         <p id="user-main-section-name">@{Variables.user_name}</p>
       </div>
-      <div id="match-queue"></div>
+      <div id="match-queue">
+        {matchesQueue.map((matchData, index) => (
+          <MatchComponent key={ index } matchData={ matchData } highestScore={ highestScore } />
+        ))}
+      </div>
     </div>
   );
 };
