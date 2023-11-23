@@ -4,7 +4,6 @@ import unfinishedImage from './assets/unfinished.svg'
 // eslint-disable-next-line
 import starImage from './assets/star.png'
 
-
 const MatchComponent = ({ matchData, highestScore }) => {
   const [score, moves, result, time] = matchData;
   let image;

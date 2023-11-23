@@ -26,7 +26,9 @@ const RightSideComponents = () => {
 
   //aqui =)
   useEffect(() => {
-    console.log(matchesQueue);
+    if(matchesQueue.length !== 0) {
+      document.getElementById('no-ref-found-text').style.display = 'none'
+    }
   }, [matchesQueue])
 
   useEffect(() => {
@@ -57,6 +59,7 @@ const RightSideComponents = () => {
         <img id="user-main-section-pic" alt="user-pfp" src={Variables.pic_id} />
         <p id="user-main-section-name">@{Variables.user_name}</p>
       </div>
+      <p id="no-ref-found-text">No References Found!</p>
       <div id="match-queue">
         {matchesQueue.map((matchData, index) => (
           <MatchComponent key={ index } matchData={ matchData } highestScore={ highestScore } />
