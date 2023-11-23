@@ -6,16 +6,29 @@ const { setGlobalState, useGlobalState } = createGlobalState({
   getSnakeAction: false,
   loadIntoDatabase: false,
   userID: null,
+  matchesQueue: [],
+  loadQueueData: false,
 
   //match-statistics
   score: 0,
   moves: 0,
   final: null,
   time: 0,
-  matchID: null
 });
 
 //match-statistics actions:
+export const setLoadQueueData = () => {
+  setGlobalState('loadQueueData', true);
+};
+
+export const resetLoadQueueData = () => {
+  setGlobalState('loadQueueData', false);
+};
+
+export const setMatchQueue = (queue) => {
+  setGlobalState('matchesQueue', queue)
+};
+
 export const updateScore = (currentScore) => {
   setGlobalState('score', currentScore);
 };
@@ -32,16 +45,11 @@ export const finalTime = (final) => {
   setGlobalState('time', final);
 };
 
-export const getMatchID = (matchID) => {
-  setGlobalState('matchID', matchID);
-};
-
 export const resetMatchValues = () => {
   setGlobalState('score', 0);
   setGlobalState('moves', 0);
   setGlobalState('final', null);
   setGlobalState('time', 0);
-  setGlobalState('matchID', null);
 };
 
 //user-id

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setLoadQueueData } from "./state";
 
 class MatchOps {
   constructor(result, score, moves, time) {
@@ -7,33 +8,36 @@ class MatchOps {
     this.moves = moves;
     this.time = time;
   }
-  getNewMatch = async (userID) => {
-    return await axios
-      .post("http://localhost:3001/getMatchID", { userId: userID })
-      .then((response) => response.data.match_id)
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  insertValues(match_id) {
-    console.log(match_id);
-
-    const act = async (matchID, result, score, moves, time) => {
+  getNewMatch(userID) {
+    const act = async (userId) => {
       try {
-        await axios.post("http://localhost:3001/insertMatchValues", {
-          matchId: matchID,
-          matchResult: result,
-          matchScore: score,
-          matchMoves: moves,
-          matchTime: time,
+        const res = await axios.post("http://localhost:3001/getMatchID", {
+          userId: userId,
         });
+        const match_id = res.data.match_id;
+        this.addMatchValues(
+          match_id,
+          this.result,
+          this.score,
+          this.moves,
+          this.time
+        );
       } catch (error) {
         console.log(error);
       }
     };
-
-    act(match_id, this.result, this.score, this.moves, this.time);
+    act(userID);
+  }
+  addMatchValues = async (match_id, result, score, moves, time) => {
+    try {
+      const res = await axios.get(
+        `http://localhost:3001/insertMatchValues?matchId=${match_id}&matchResult=${result}&matchScore=${score}&matchMoves=${moves}&matchTime=${time}`
+      );
+      console.log(res.data);
+      setLoadQueueData();
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 

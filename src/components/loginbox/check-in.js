@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setUserID } from "../main-page/state";
+import { setLoadQueueData, setUserID } from "../main-page/state";
 const Swal = require("sweetalert2");
 
 class Verify {
@@ -161,6 +161,7 @@ class Verify {
           `http://localhost:3001/getID?name=${n}&pic_id=${p}`
         );
         setUserID(response.data.user_id);
+        setLoadQueueData();
       } catch (error) {
         console.error("Error on get id:", error);
       }
