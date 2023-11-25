@@ -27,7 +27,7 @@ class Verify {
       } else if (this.button === "create") {
         this.pushIntoDatabase(this.name, this.pic_id, callback);
       } else {
-        console.log("unexpected token");
+        console.error('Unexpected token: ', 3)
       }
     }
   }
@@ -38,7 +38,6 @@ class Verify {
           name: n,
           pic_id: p,
         });
-        console.log("Dados enviados com sucesso:", response.data);
         if (response.data) {
           const Toast = Swal.mixin({
             toast: true,
@@ -78,7 +77,7 @@ class Verify {
           callback(false);
         }
       } catch (error) {
-        console.error("Error on send data:", error);
+        console.error(error);
       }
     };
     verify(name, pic_id);
@@ -100,7 +99,6 @@ class Verify {
               name: n,
               pic_id: p,
             });
-            console.log("Successful sending data:", response.data);
             if (response.data) {
               const Toast = Swal.mixin({
                 toast: true,
@@ -149,7 +147,6 @@ class Verify {
           title: "Cancelled!",
           icon: "error",
         });
-        console.log("unsaved data");
       }
     });
   }

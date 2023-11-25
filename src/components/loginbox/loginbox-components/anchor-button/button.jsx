@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Variables from '../../user-data';
 import Verify from '../../check-in';
 import './index.css'
+import { setAuthenticated } from '../../../../pages/state';
 
 const LinkButton = (props) => {
   const[wasPressed, setPressed] = useState(false);
@@ -34,6 +35,7 @@ const LinkButton = (props) => {
       } else if (Variables.current_button === 'start' || Variables.current_button === 'create') {
         verify.validation((result) => {
           if (result) {
+            setAuthenticated(true);
             navigate('/game');
           }
         });
