@@ -1,10 +1,16 @@
+import { useEffect } from 'react'
 import CenterComponents from '../../components/main-page/main-page-components/center-components/centerComponents.jsx'
 import TimeCounter from '../../components/main-page/main-page-components/left-side-components/timeCounter.jsx'
 import RightSideComponents from '../../components/main-page/main-page-components/right-side-components/rightComponents.jsx'
 import CurrentUserStats from '../../components/main-page/main-page-components/score-moves-stats/currentStats.jsx'
 import './index.css'
+import { setCurrentPage } from '../state.js'
 
 const Main = () => {
+  useEffect(() => {
+    setCurrentPage('main');
+  }, [])
+
   return(
     <div id='main-page'>
       <div id='left-main-section'>
