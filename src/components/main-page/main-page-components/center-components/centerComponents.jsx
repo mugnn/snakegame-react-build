@@ -1,6 +1,8 @@
 import GameBox from '../game-box/gameBox'
 import './index.css'
 
+// renderiza os componentes do centro da tela principal de jogo.
+
 const CenterComponents = () => {
   return(
     <div id='center-components'>

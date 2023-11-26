@@ -2,6 +2,8 @@ import './index.css'
 import React, { useState, useEffect } from 'react';
 import Variables from '../../user-data';
 
+// componente responsável por mudar da seção de "login" para "register"
+
 const SwitchRequest = () => {
   const [checkboxChecked, setCheckboxChecked] = useState(false);
 

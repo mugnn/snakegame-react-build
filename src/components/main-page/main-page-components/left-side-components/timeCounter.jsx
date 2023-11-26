@@ -17,6 +17,7 @@ import {
 import { useState, useEffect, useRef } from "react";
 import $ from "jquery";
 
+// componente responsável por renderizar o timer e interromper a parida. O "unfinished" é implementado aqui.
 const TimeCounter = () => {
   //trigger start - stop - pause
   const [start, setStart] = useState(false);
@@ -25,7 +26,7 @@ const TimeCounter = () => {
 
   const [globalState] = useGlobalState("globalState");
 
-  // tentar trocar isso por variavel global -->
+  // tentar trocar isso por variavel global --> consegui =)
   useEffect(() => {
     if (globalState === 1) {
       setStart(true);
@@ -42,6 +43,9 @@ const TimeCounter = () => {
   let seconds = useRef(0);
   let minutes = useRef(0);
 
+  /* toda vez que o usuário pressiona as teclas (w, a, s, d ou setas) o timer é renderizado. Os botões e pause e stop permitem
+    que o usuário interrompa a partida e a reinicie posteriormente, carregando no banco de dados como "unfinished".
+  */
   useEffect(() => {
     const formatTime = () => {
       return (

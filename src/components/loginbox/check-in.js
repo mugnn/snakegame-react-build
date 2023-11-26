@@ -2,6 +2,11 @@ import axios from "axios";
 import { setLoadQueueData, setUserID } from "../main-page/state";
 const Swal = require("sweetalert2");
 
+/* essa classe é responsável por inserir a combinação de foto e nome para a criação de um novo usuário caso o botão pressionado seja o "create" -> pushIntoDatabase
+  e verificar a existência desse usuário caso o botão pressionado seja o "login" -> verifyIntoDatabase. Após isso, é resgatado do banco de dados o respectivo ID do 
+  usuário -> getUserID.
+*/
+
 class Verify {
   constructor(name, pic_id, button) {
     this.name = name;

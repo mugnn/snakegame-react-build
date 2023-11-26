@@ -3,6 +3,8 @@ import SnakeGame from './snakegame';
 import { useGlobalState, setFinished, resetQuit} from "../../state";
 import { useState, useEffect } from "react";
 
+// caixa do jogo em si. instância novo jogos e reseta as variáveis ao fim do ciclo de vida do jogo.
+
 const GameBox = () => {
   const [userQuit] = useGlobalState('quit');
   const [snakeGame, setSnakeGame] = useState(null);

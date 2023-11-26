@@ -5,9 +5,11 @@ import unfinishedImage from './assets/unfinished.svg'
 import starImage from './assets/star.png'
 
 const MatchComponent = ({ matchData, highestScore }) => {
+  // carrega as informações das paridas
   const [score, moves, result, time] = matchData;
   let image;
 
+  // define, com base nos dados, como derrota, inacabado ou melhor parida
   if (result === 'Defeat') {
     image = defeatImage;
   } else if (result === 'Unfinished') {

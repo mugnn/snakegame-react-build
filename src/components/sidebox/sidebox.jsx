@@ -1,6 +1,8 @@
 import './styles.css'
 import snakeImage from './assets/snake.svg'
 
+// componente responsável por renderizar a caixa lateral na tela de início.
+
 const SideBox = () => {
   return(
     <div id='sidebox'>

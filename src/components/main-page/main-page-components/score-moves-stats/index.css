@@ -30,3 +30,19 @@
   margin: 0;
   user-select: none;
 }
+@media screen and (max-width: 1130px) and (min-width: 551px) {
+  #current-user-stats {
+    flex-direction: column;
+    width: 20vw;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #current-user-stats {
+    flex-direction: row;
+    justify-content: end;
+    padding-top: 10vmin;
+    width: 67vw;
+    height: 25vh;
+  }
+}

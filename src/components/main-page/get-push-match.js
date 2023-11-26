@@ -1,6 +1,10 @@
 import axios from "axios";
 import { setLoadQueueData } from "./state";
 
+/* capta um novo match_id com base no id do usuário atual -> getNewMatch e posteriormente inicia addMatchValues 
+  que é responsável por adcionar os dados de cada partida jogada pelo usuário ao fim do ciclo de vida do jogo.
+*/
+
 class MatchOps {
   constructor(result, score, moves, time) {
     this.result = result;

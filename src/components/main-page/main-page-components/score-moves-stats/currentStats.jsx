@@ -4,6 +4,7 @@ import $ from "jquery";
 import { useGlobalState, resetAction, updateMoves } from "../../state";
 import { useState, useEffect, useRef } from "react";
 
+// componente responsável por renderizar informações como o score máximo daquela sessão e o número de movimentações feitas pelo usuário na partida.
 const CurrentUserStats = () => {
   const [direction, setDirection] = useState("");
   const [globalState] = useGlobalState('globalState');
@@ -11,6 +12,7 @@ const CurrentUserStats = () => {
 
   const moves = useRef(0);
   const userScore = useRef(0);
+  // o compareScore armazena o score das últimas paridas jogadas pelo usuário na mesma sessão.
   const compareScore = useRef([0]);
 
   const directionCounter = (event) => {
@@ -32,6 +34,7 @@ const CurrentUserStats = () => {
 
   document.addEventListener('keydown', directionCounter)
 
+  // conta o número de movimentações.
   useEffect(() => {
     if (globalState === -1) {
       moves.current = 0;
@@ -42,6 +45,7 @@ const CurrentUserStats = () => {
     }
   }, [direction, globalState]);
 
+  // define o score máximo comparando com o score máximo atual. Caso seja maior do que o score máximo atual o score é renderizado em tempo real conforme o ciclo de vida da parida.
   useEffect(() => {
     if (snakeAction) {
       userScore.current += 50;

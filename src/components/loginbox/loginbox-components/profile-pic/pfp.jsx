@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './index.css'
 
+// componente responsável por renderizar a foto de perfil e esconder a "default-section" para exibir a seção de seleção de fotos
+
 const ProfilePic = () => {
   const[wasPressed, setPressed] = useState(false);
 

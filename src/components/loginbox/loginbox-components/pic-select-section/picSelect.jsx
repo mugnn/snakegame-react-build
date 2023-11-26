@@ -4,6 +4,8 @@ import LinkButton from '../anchor-button/button'
 import React, {useState, useEffect, useRef} from 'react'
 import Variables from '../../user-data'
 
+// componente responsável por selecionar e atualizar a renderização das fotos, e ao fim, resgatar seu valor para ser inserido no banco de dados (Variables.pic_id)
+
 const PicSelectSection = () => {
   const[isSelected, setIsSelected] = useState(false);
   const[num, setNum] = useState(15);
@@ -11,6 +13,7 @@ const PicSelectSection = () => {
   const contClick = useRef(0);
   let link = useRef('');
 
+  // ao clicar a imagem "cresce", indicando estar selecionada
 
   useEffect(() => {
     if (isSelected) {

@@ -1,6 +1,7 @@
 import './index.css'
 
 const InputBox = () => {
+  // caixa de input com o limite de 16 caracteres
   return(
     <div id='input-label-section'>
       <p id='label-input-box'></p> 

@@ -6,6 +6,8 @@ import CurrentUserStats from '../../components/main-page/main-page-components/sc
 import './index.css'
 import { setCurrentPage } from '../state.js'
 
+// componente pai responsável por renderizar os componentes da tela de jogo.
+
 const Main = () => {
   useEffect(() => {
     setCurrentPage('main');

@@ -14,6 +14,7 @@ import img13 from './assets/knuckles.jpg'
 import img14 from './assets/gengar.jpg'
 import img15 from './assets/comunistdoggo.jpg'
 
+// reúne todas as imagens num objeto para facilitar o seu acesso e deixar o componente picSelect menos poluído
 const images = {
   img1, 
   img2, 

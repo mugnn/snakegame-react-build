@@ -78,3 +78,21 @@
   margin: 0;
   user-select: none;
 }
+
+@media screen and (max-width: 1130px) and (min-width: 551px) {
+  #time-counter-itself {
+    display: none;
+  }
+  #time-counter {
+    padding: inherit;
+    display: flex;
+    justify-content: center;
+    width: 20vw;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #time-counter-itself {
+    display: none;
+  }
+}

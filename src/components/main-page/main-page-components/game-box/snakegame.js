@@ -14,7 +14,10 @@ import {
   updateScore
 } from "../../state";
 
+// classe do jogo em si: renderiza e atualiza seu estado conforme seu ciclo de vida.
+
 class SnakeGame {
+  // inicializa as variáveis do jogo
   constructor() {
     this.blockSize = 100;
     this.rows = 32;
@@ -55,11 +58,17 @@ class SnakeGame {
     document.addEventListener('keydown', this.changeDirection.bind(this));
   }
 
+  // função responsável por inciar o jogo -> update; e posicionar o elemento comida -> placeFood.
   start() {
     this.placeFood();
     this.update();
   }
 
+  /* função responsável por renderizar o jogo 60 vezes por segundo, funcionalidade implementada - a cobra só muda de direção 
+    quando sua cabeça estiver alinhada com o bloco, caso não esteja, guarda a key que define a direção e espera a cobra alinhar 
+    com o bloco para que ao fim, sua direção seja alterada - evita que a cobra saia do grid a partir da redução da velocidade 
+    padrão para 0.1 bloco a cada ciclo, permitido maior fluidez na animação.
+  */
   update() {
     if (this.gameOver) {
       verifyStop.vAdvMode = true;
@@ -178,6 +187,7 @@ class SnakeGame {
     this.runId = requestAnimationFrame(this.update.bind(this));
   }
 
+  // função responsável por alterar a direção da cobra durante o ciclo de vida do jogo.
   changeDirection(event) {
     if (verifyStop.vState === 0) {
       verifyStop.vState = null;
@@ -238,17 +248,20 @@ class SnakeGame {
     }
   }
 
+  // posiciona a comida aleatoriamente dentro do grid.
   placeFood() {
     this.foodX = Math.floor(Math.random() * this.columns) * this.blockSize;
     this.foodY = Math.floor(Math.random() * this.rows) * this.blockSize;
   }
 
+  // atualiza a pontuação da partida.
   updatePoints() {
     this.counter += 50;
     updateScore(this.counter);
     $("#score-value").text(this.counter);
   }
 
+  // reseta os valores e reinicia o jogo ao fim do seu ciclo de vida
   resetValues() {
     setNull();
     setQuit();

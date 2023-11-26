@@ -5,6 +5,10 @@ import LoginBox from '../../components/loginbox/loginbox'
 import { useEffect } from 'react'
 import { useGlobalState } from '../state'
 
+/* componente pai responsável por renderizar os componentes da tela de login e reiniciar todo o 
+  estado da aplicação após iniciado para evitar que informações antigas continuem armazenadas.
+*/
+
 const Login = () => {
   const [currentPage] = useGlobalState('currentPage');
 
