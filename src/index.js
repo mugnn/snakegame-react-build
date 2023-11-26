@@ -12,6 +12,7 @@ import { useGlobalState } from "./pages/state";
 
 const App = () => {
   const [isAuthenticated] = useGlobalState("isAuthenticated");
+
   return (
     <BrowserRouter>
       <Routes>
